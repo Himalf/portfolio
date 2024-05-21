@@ -4,8 +4,13 @@
 
 
 .dark {
-    color: #fff; /* Text color */
-    background-color: #333; /* Background color */
+    color: #000; /* Text color */
+    background-color: white; /* Background color */
   }
-  
+ 
+  .darks{
+    color: #000;
+    /* border: 2px solid black; */
+    background-color:rgb(130, 149, 130);
+  }
   

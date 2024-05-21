@@ -1,10 +1,10 @@
 import React from "react";
 import Projects from "./Projects";
 
-const index = () => {
+const index = ({ isDarkMode }) => {
   return (
     <div>
-      <Projects />
+      <Projects isDarkMode={isDarkMode} />
     </div>
   );
 };

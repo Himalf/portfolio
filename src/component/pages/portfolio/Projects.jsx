@@ -4,7 +4,9 @@ import Hotel from "../../../assets/images/hotelbabari.png";
 import Hub from "../../../assets/images/hubit.png";
 import Cab from "../../../assets/images/Cab.png";
 import cms from "../../../assets/images/cms.png";
-const Projects = () => {
+const Projects = ({ isDarkMode }) => {
+  const darkModeClass = isDarkMode ? "" : "dark";
+  const darkModeClass1 = isDarkMode ? "" : "darks";
   const ProjectDetails = [
     {
       name: "Blog-Management System",
@@ -33,14 +35,14 @@ const Projects = () => {
     },
   ];
   return (
-    <div className="bg-secondColor text-white p-5">
+    <div className={`bg-secondColor text-white p-5 ${darkModeClass}`}>
       <h1 className="text-3xl text-center font-bold p-5">My Projects</h1>
       <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 lf gap-10 justify-items-center">
         {ProjectDetails.map((val, i) => {
           return (
             <div
               key={i}
-              className=" w-full shadow-md shadow-black rounded-md p-2 cursor-pointer bg-mainColor"
+              className={`w-full shadow-md shadow-black rounded-md p-2 cursor-pointer bg-mainColor ${darkModeClass1}`}
               onClick={() => {
                 window.open(val.path, "_blank");
               }}

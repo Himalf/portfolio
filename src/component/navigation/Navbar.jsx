@@ -4,7 +4,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from "../../assets/images/logo.png";
 import MyPDF from "../../assets/images/cv.png";
 
-const Navbar = () => {
+const Navbar = ({ isDarkMode }) => {
   const [activeButton, setActiveButton] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
@@ -22,9 +22,12 @@ const Navbar = () => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+  const darkModeClass = isDarkMode ? "" : "darks";
 
   return (
-    <div className="bg-mainColor p-3 rounded-t-lg">
+    <div
+      className={`bg-mainColor p-3 rounded-t-lg sticky top-0 left-0  ${darkModeClass}`}
+    >
       <div className="flex justify-between items-center">
         <div className="flex items-center rounded-full">
           <img
@@ -32,7 +35,9 @@ const Navbar = () => {
             alt="logo"
             className="w-16 h-16 rounded-full mr-2 cursor-pointer"
           />
-          <span className={`font-extrabold animate-bounce text-white`}>
+          <span
+            className={`font-extrabold animate-bounce text-white ${darkModeClass}`}
+          >
             Him
           </span>
           <span className="text-buttonColor font-extrabold animate-bounce">
@@ -40,12 +45,14 @@ const Navbar = () => {
           </span>
         </div>
         <div
-          className="md:hidden text-white text-2xl cursor-pointer"
+          className={`md:hidden text-white text-2xl cursor-pointer ${darkModeClass}`}
           onClick={toggleMenu}
         >
           {menuOpen ? <FaTimes /> : <FaBars />}
         </div>
-        <div className="hidden md:flex justify-evenly gap-10 text-white items-center text-sm font-semibold">
+        <div
+          className={`hidden md:flex justify-evenly gap-10 text-white items-center text-sm font-semibold ${darkModeClass}`}
+        >
           {NavItems.map((val, i) => (
             <div
               key={i}
@@ -53,14 +60,16 @@ const Navbar = () => {
                 navigate(val.path);
                 setActiveButton(i);
               }}
-              className={`cursor-pointer hover:text-buttonColor ${
-                activeButton === i ? "text-buttonColor" : "text-white"
+              className={`cursor-pointer hover:text-buttonColor font-bold ${
+                activeButton === i ? "text-buttonColor" : darkModeClass
               }`}
             >
               {val.name}
             </div>
           ))}
-          <div className="text-white border-2 border-buttonColor rounded-xl cursor-pointer px-5 py-1">
+          <div
+            className={`text-white border-2 border-buttonColor rounded-xl cursor-pointer px-5 py-1 ${darkModeClass}`}
+          >
             <a href={MyPDF} download="cv.png">
               Download CV
             </a>
@@ -68,7 +77,9 @@ const Navbar = () => {
         </div>
       </div>
       {menuOpen && (
-        <div className="md:hidden flex flex-col gap-5 mt-5 text-white text-center text-sm font-semibold">
+        <div
+          className={`md:hidden flex flex-col gap-5 mt-5 text-white text-center text-sm font-semibold ${darkModeClass}`}
+        >
           {NavItems.map((val, i) => (
             <div
               key={i}
@@ -78,13 +89,15 @@ const Navbar = () => {
                 toggleMenu();
               }}
               className={`cursor-pointer hover:text-buttonColor ${
-                activeButton === i ? "text-buttonColor" : "text-white"
+                activeButton === i ? "text-buttonColor" : darkModeClass
               }`}
             >
               {val.name}
             </div>
           ))}
-          <div className="text-white border-2 w-fit text-center mx-auto border-buttonColor rounded-xl cursor-pointer px-5 py-1 mt-2">
+          <div
+            className={`text-white border-2 w-fit text-center mx-auto border-buttonColor rounded-xl cursor-pointer px-5 py-1 mt-2 ${darkModeClass}`}
+          >
             <a href={MyPDF} download="cv.png">
               Download CV
             </a>

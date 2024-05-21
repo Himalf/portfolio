@@ -1,9 +1,10 @@
 import React from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 
-const Footer = () => {
+const Footer = ({ isDarkMode }) => {
+  const darkModeClass = isDarkMode ? "" : "darks";
   return (
-    <footer className="bg-mainColor text-white py-10">
+    <footer className={`bg-mainColor text-white py-10 ${darkModeClass}`}>
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-wrap lg:flex-nowrap justify-between items-center space-y-8 md:space-y-4 lg:space-y-0 lg:flex-row lg:space-x-8">
           <div className="w-full md:w-1/2 lg:w-auto text-center lg:text-left">
@@ -62,7 +63,7 @@ const Footer = () => {
                 required
               />
               <button
-                className="bg-buttonColor px-4 py-2 rounded-md cursor-pointer w-full md:w-fit font-bold"
+                className="bg-buttonColor px-4 py-2 rounded-md cursor-pointer w-full md:w-fit font-bold text-white"
                 onClick={() => {
                   alert("Subscribed!");
                 }}
@@ -73,12 +74,14 @@ const Footer = () => {
           </div>
           <div className="w-full md:w-1/2 lg:w-auto text-center lg:text-left">
             <h2 className="text-xl font-bold mb-4">Follow Us</h2>
-            <div className="flex justify-center lg:justify-start space-x-4">
+            <div
+              className={`flex justify-center lg:justify-start space-x-4 text-white ${darkModeClass}`}
+            >
               <a
                 href="https://www.facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-gray-400"
+                // className="text-white hover:text-gray-400"
               >
                 <FaFacebook size={24} />
               </a>
@@ -86,7 +89,7 @@ const Footer = () => {
                 href="https://www.twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-gray-400"
+                // className="text-white hover:text-gray-400"
               >
                 <FaTwitter size={24} />
               </a>
@@ -94,7 +97,7 @@ const Footer = () => {
                 href="https://www.instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-gray-400"
+                // className="text-white hover:text-gray-400"
               >
                 <FaInstagram size={24} />
               </a>
@@ -102,7 +105,7 @@ const Footer = () => {
                 href="https://www.linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-gray-400"
+                // className="text-white hover:text-gray-400"
               >
                 <FaLinkedin size={24} />
               </a>

@@ -1,10 +1,10 @@
 import React from "react";
-import Aboutus from "./Aboutus";
+import Contactme from "./Contactme";
 
 const index = ({ isDarkMode }) => {
   return (
     <div>
-      <Aboutus isDarkMode={isDarkMode} />
+      <Contactme isDarkMode={isDarkMode} />
     </div>
   );
 };

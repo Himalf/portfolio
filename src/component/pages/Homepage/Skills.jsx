@@ -3,12 +3,17 @@ import { HiLightBulb } from "react-icons/hi";
 import { MdHighQuality } from "react-icons/md";
 import { VscWorkspaceTrusted } from "react-icons/vsc";
 
-const Skills = () => {
+const Skills = ({ isDarkMode }) => {
+  const darkModeClass = isDarkMode ? "" : "darks";
   return (
-    <div className="bg-secondColor  flex flex-col justify-center gap-10 items-center py-[7%] lg:flex lg:flex-row">
-      <div className="w-[70%] lg:w-[30%] p-5  border-2 rounded-lg  flex flex-col items-center gap-5 text-white">
+    <div
+      className={`bg-secondColor  flex flex-col justify-center gap-10 items-center py-[7%] lg:flex lg:flex-row ${darkModeClass}`}
+    >
+      <div
+        className={`w-[70%] lg:w-[30%] p-5  border-2  rounded-lg  flex flex-col items-center gap-5 text-white ${darkModeClass}`}
+      >
         <div className="text-8xl border-2 rounded-full border-buttonColor p-1">
-          <MdHighQuality className="border-2  rounded-full" />
+          <MdHighQuality className="border-2  rounded-full text-green-600" />
         </div>
         <div className="text-3xl font-bold text-center">High Quality</div>
         <div className="font-bold px-5 text-center">
@@ -16,7 +21,9 @@ const Skills = () => {
           is responsive and adaptive design.
         </div>
       </div>
-      <div className="w-[70%] lg:w-[30%] p-5  border-2  rounded-lg flex flex-col items-center gap-5 text-white">
+      <div
+        className={`w-[70%] lg:w-[30%] p-5  border-2  rounded-lg  flex flex-col items-center gap-5 text-white ${darkModeClass}`}
+      >
         <div className="text-8xl border-2 rounded-full border-buttonColor p-1">
           <HiLightBulb className="border-2  rounded-full text-buttonColor" />
         </div>
@@ -26,7 +33,9 @@ const Skills = () => {
           is responsive and adaptive design.
         </div>
       </div>
-      <div className="w-[70%] lg:w-[30%] p-5  border-2  rounded-lg flex flex-col items-center gap-5 text-white">
+      <div
+        className={`w-[70%] lg:w-[30%] p-5  border-2  rounded-lg  flex flex-col items-center gap-5 text-white ${darkModeClass}`}
+      >
         <div className="text-8xl border-2 rounded-full border-buttonColor p-1">
           <VscWorkspaceTrusted className="border-2  rounded-full text-blue-600" />
         </div>

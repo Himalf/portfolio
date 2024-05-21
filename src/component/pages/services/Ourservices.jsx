@@ -9,7 +9,9 @@ import {
   FaFileAlt,
 } from "react-icons/fa";
 
-const Ourservices = () => {
+const Ourservices = ({ isDarkMode }) => {
+  const darkModeClass = isDarkMode ? "" : "dark";
+  const darkModeClass1 = isDarkMode ? "" : "darks";
   const ServiceData = [
     {
       name: "Customization",
@@ -56,14 +58,14 @@ const Ourservices = () => {
   ];
 
   return (
-    <div className="bg-secondColor text-white py-10">
+    <div className={`bg-secondColor text-white py-10 ${darkModeClass}`}>
       <h1 className="text-4xl text-center font-bold mb-10">Our Services</h1>
       <hr className="border-gray-400 mb-10" />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5">
         {ServiceData.map((val, i) => (
           <div
             key={i}
-            className="w-full bg-mainColor p-5 rounded-md shadow-lg shadow-black transition-transform transform hover:scale-105 cursor-pointer"
+            className={`w-full bg-mainColor p-5 rounded-md shadow-lg shadow-black  hover:scale-105 cursor-pointer ${darkModeClass1}`}
           >
             <div className="flex items-center gap-4 mb-4">
               <div className="text-5xl text-center text-buttonColor">

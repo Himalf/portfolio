@@ -10,34 +10,38 @@ import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import Profile from "../../../assets/images/profile.png";
 
-const Intropage = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+const Intropage = ({ isDarkMode, toggleDarkMode }) => {
+  // const [isDarkMode, setIsDarkMode] = useState(true);
   const navigate = useNavigate();
 
-  // Function to toggle dark mode
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-  };
+  // // Function to toggle dark mode
+  // const toggleDarkMode = () => {
+  //   setIsDarkMode(!isDarkMode);
+  // };
 
   // CSS class for dark mode
   const darkModeClass = isDarkMode ? "" : "dark";
 
   return (
     <div
-      className={`p-3 bg-gradient-to-b from-mainColor to bg-gray-600 h-full flex flex-col justify-center gap-10 lg:flex lg:flex-row lg:justify-evenly items-center ${darkModeClass}`}
+      className={`p-3 bg-mainColor h-full flex flex-col justify-center gap-10 lg:flex lg:flex-row lg:justify-evenly items-center ${darkModeClass}`}
     >
       <div className="max-w-md">
         <div className="text-buttonColor font-bold text-4xl">Hello, I'm</div>
-        <div className="text-white text-6xl font-extrabold flex items-center gap-10">
+        <div
+          className={`text-white text-6xl font-extrabold flex items-center gap-10 ${darkModeClass}`}
+        >
           <h1> Himal Fullel</h1>
-          <div className=" text-5xl w-fit hover:text-buttonColor hover:bg-white hover:rounded-full transition-all duration-200 delay-200 ease-in-out cursor-pointer">
+          <div
+            className={`text-5xl w-fit hover:text-buttonColor hover:bg-white hover:rounded-full transition-all duration-200 delay-200 ease-in-out cursor-pointer ${darkModeClass}`}
+          >
             <a href="https://github.com/Himalf" target="_blank">
               {" "}
               <FaGithub />
             </a>
           </div>
         </div>
-        <div className="font-extrabold text-white">
+        <div className={`font-extrabold text-white ${darkModeClass}`}>
           A{" "}
           <span className="text-buttonColor font-bold text-2xl">
             {" "}
@@ -45,7 +49,9 @@ const Intropage = () => {
           </span>{" "}
           From Nepal
         </div>
-        <div className="text-white font-semibold text-md  text-justify">
+        <div
+          className={`text-white font-semibold text-md  text-justify ${darkModeClass}`}
+        >
           I'm creative Developer and Designer based in Nepal , and I'm very
           passionate and dedicated to my work
         </div>
@@ -58,17 +64,19 @@ const Intropage = () => {
           >
             About Me
           </div>
-          <div className="flex gap-3 items-center cursor-pointer text-white">
-            <div>
+          <div
+            className={`flex gap-3 items-center cursor-pointer text-white ${darkModeClass}`}
+          >
+            <div className=" hover:text-buttonColor">
               <FaFacebookF />
             </div>
-            <div>
+            <div className=" hover:text-buttonColor">
               <FaTwitter />
             </div>
-            <div>
+            <div className=" hover:text-buttonColor">
               <FaLinkedin />
             </div>
-            <div>
+            <div className=" hover:text-buttonColor">
               <FaInstagram />
             </div>
           </div>

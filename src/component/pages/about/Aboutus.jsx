@@ -1,13 +1,18 @@
 import React from "react";
 import Aboutimage from "../../../assets/images/aboutimage.png";
-const Aboutus = () => {
+const Aboutus = ({ isDarkMode }) => {
+  const darkModeClass = isDarkMode ? "" : "dark";
   return (
     <>
-      <h1 className="bg-secondColor text-white font-bold text-3xl text-center p-5">
+      <h1
+        className={`bg-secondColor text-white font-bold text-3xl text-center p-5 ${darkModeClass}`}
+      >
         About Me
       </h1>
       <hr />
-      <div className="flex flex-col justify-center md:flex md:flex-row lg:flex lg:flex-row lg:items-center lg:justify-center gap-20 bg-secondColor items-center text-white font-bold text-lg p-5">
+      <div
+        className={`flex flex-col justify-center md:flex md:flex-row lg:flex lg:flex-row lg:items-center lg:justify-center gap-20 bg-secondColor items-center text-white font-bold text-lg p-5 ${darkModeClass}`}
+      >
         <div className="">
           <img src={Aboutimage} alt="profile" />
         </div>
@@ -35,7 +40,12 @@ const Aboutus = () => {
               amazing!
             </p>
           </div>
-          <div className="w-fit px-8 p-1 bg-buttonColor text-white font-bold  hover:bg-white hover:text-buttonColor rounded-md m-1 cursor-pointer transition-all duration-200 delay-200 ease-in-out hover:translate-x-2">
+          <div
+            className="w-fit px-8 p-1 bg-buttonColor text-white font-bold  hover:bg-white hover:text-buttonColor rounded-md m-1 cursor-pointer transition-all duration-200 delay-200 ease-in-out hover:translate-x-2"
+            onClick={() => {
+              alert("Thank you for hiring me!");
+            }}
+          >
             Hire me
           </div>
         </div>
