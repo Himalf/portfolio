@@ -2,112 +2,127 @@ import React from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const Footer = ({ isDarkMode }) => {
-  const darkModeClass = isDarkMode ? "" : "darks";
+  const darkModeClass = isDarkMode
+    ? "bg-gray-900 text-white"
+    : "bg-gray-100 text-gray-900";
+  const linkHoverClass = isDarkMode ? "hover:text-gray-300" : "hover:text-gray-700";
+
   return (
-    <footer className={`bg-mainColor text-white py-10 ${darkModeClass}`}>
+    <footer className={`py-10 ${darkModeClass}`}>
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-wrap lg:flex-nowrap justify-between items-center space-y-8 md:space-y-4 lg:space-y-0 lg:flex-row lg:space-x-8">
-          <div className="w-full md:w-1/2 lg:w-auto text-center lg:text-left">
-            <h2 className="text-xl font-bold mb-4">About</h2>
-            <p>Developed by Himal Fullel &copy; {new Date().getFullYear()}</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+          {/* About Section */}
+          <div>
+            <h2 className="text-lg font-bold mb-4">About</h2>
+            <p className="text-sm">
+              Developed by Himal Fullel &copy; {new Date().getFullYear()}
+            </p>
           </div>
-          <div className="w-full md:w-1/2 lg:w-auto text-center">
-            <h2 className="text-xl font-bold mb-4">Links</h2>
-            <ul>
-              <li className="mb-2">
-                <a href="#" className="hover:underline">
+
+          {/* Links Section */}
+          <div>
+            <h2 className="text-lg font-bold mb-4">Links</h2>
+            <ul className="space-y-2">
+              <li>
+                <a href="#" className={`text-sm ${linkHoverClass}`}>
                   Terms and Conditions
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="#" className={`text-sm ${linkHoverClass}`}>
                   Privacy Policy
                 </a>
               </li>
             </ul>
           </div>
-          <div className="w-full md:w-1/2 lg:w-auto text-center lg:text-left">
-            <h2 className="text-xl font-bold mb-4">Contact</h2>
-            <ul>
-              <li className="mb-2">
+
+          {/* Contact Section */}
+          <div>
+            <h2 className="text-lg font-bold mb-4">Contact</h2>
+            <ul className="space-y-2 text-sm">
+              <li>
                 <a
                   href="https://www.himalfullel.com.np"
-                  className="hover:underline"
+                  className={linkHoverClass}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   www.himalfullel.com.np
                 </a>
               </li>
-              <li className="mb-2">
+              <li>
                 <a
                   href="mailto:himal.fullel15@gmail.com"
-                  className="hover:underline"
+                  className={linkHoverClass}
                 >
                   himal.fullel15@gmail.com
                 </a>
               </li>
-              <li className="mb-2">
-                <a href="tel:+9779867527352" className="hover:underline">
+              <li>
+                <a href="tel:+9779867527352" className={linkHoverClass}>
                   +9779867527352
                 </a>
               </li>
               <li>Nepal</li>
             </ul>
           </div>
-          <div className="w-full md:w-1/2 lg:w-auto text-center">
-            <h2 className="text-xl font-bold mb-4">Subscribe</h2>
-            <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
+
+          {/* Subscribe Section */}
+          <div>
+            <h2 className="text-lg font-bold mb-4">Subscribe</h2>
+            <div className="flex flex-col md:flex-row items-center gap-4">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="outline-none p-2 rounded-md text-buttonColor w-full md:w-auto"
+                className="w-full md:w-auto px-4 py-2 rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 required
               />
               <button
-                className="bg-buttonColor px-4 py-2 rounded-md cursor-pointer w-full md:w-fit font-bold text-white"
-                onClick={() => {
-                  alert("Subscribed!");
-                }}
+                className="bg-indigo-500 px-4 py-2 rounded-md font-bold text-white hover:bg-indigo-600 transition-all"
+                onClick={() => alert("Subscribed!")}
               >
                 Subscribe
               </button>
             </div>
           </div>
-          <div className="w-full md:w-1/2 lg:w-auto text-center lg:text-left">
-            <h2 className="text-xl font-bold mb-4">Follow Us</h2>
+
+          {/* Social Media Section */}
+          <div>
+            <h2 className="text-lg font-bold mb-4">Follow Us</h2>
             <div
-              className={`flex justify-center lg:justify-start space-x-4 text-white ${darkModeClass}`}
+              className={`flex justify-center lg:justify-start gap-4 text-white ${darkModeClass}`}
             >
               <a
                 href="https://www.facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                // className="text-white hover:text-gray-400"
+                className="p-2 bg-gray-700 rounded-full hover:bg-gray-600 transition-all"
               >
-                <FaFacebook size={24} />
+                <FaFacebook size={20} />
               </a>
               <a
                 href="https://www.twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                // className="text-white hover:text-gray-400"
+                className="p-2 bg-gray-700 rounded-full hover:bg-gray-600 transition-all"
               >
-                <FaTwitter size={24} />
+                <FaTwitter size={20} />
               </a>
               <a
                 href="https://www.instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                // className="text-white hover:text-gray-400"
+                className="p-2 bg-gray-700 rounded-full hover:bg-gray-600 transition-all"
               >
-                <FaInstagram size={24} />
+                <FaInstagram size={20} />
               </a>
               <a
                 href="https://www.linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                // className="text-white hover:text-gray-400"
+                className="p-2 bg-gray-700 rounded-full hover:bg-gray-600 transition-all"
               >
-                <FaLinkedin size={24} />
+                <FaLinkedin size={20} />
               </a>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from "../../assets/images/logo.png";
@@ -8,100 +8,104 @@ const Navbar = ({ isDarkMode }) => {
   const [activeButton, setActiveButton] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
+
   const NavItems = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Portfolio", path: "/portfolio" },
     { name: "Services", path: "/services" },
-    // { name: "Blog", path: "/blog" },
     { name: "Contact", path: "/contact" },
   ];
-  // const [isDarkMode, setIsDarkMode] = useState(true);
-  // const navigate = useNavigate();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-  const darkModeClass = isDarkMode ? "" : "darks";
+
+  const darkModeClass = isDarkMode
+    ? "bg-gray-900 text-white"
+    : "bg-white text-gray-900";
 
   return (
     <div
-      className={`bg-mainColor p-3 rounded-t-lg sticky top-0 left-0  ${darkModeClass}`}
+      className={`sticky top-0 left-0 z-50 p-4 shadow-md transition-all duration-300 ${darkModeClass}`}
     >
       <div className="flex justify-between items-center">
-        <div className="flex items-center rounded-full">
+        {/* Logo Section */}
+        <div className="flex items-center cursor-pointer" onClick={() => navigate("/")}>
           <img
             src={Logo}
             alt="logo"
-            className="w-16 h-16 rounded-full mr-2 cursor-pointer"
+            className="w-12 h-12 rounded-full mr-2"
           />
-          <span
-            className={`font-extrabold animate-bounce text-white ${darkModeClass}`}
-          >
-            Him
-          </span>
-          <span className="text-buttonColor font-extrabold animate-bounce">
-            AL
-          </span>
+          <h1 className="text-xl font-extrabold">
+            <span className="text-indigo-500">Him</span>
+            <span className="text-orange-500">AL</span>
+          </h1>
         </div>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex gap-6 items-center">
+          {NavItems.map((item, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                navigate(item.path);
+                setActiveButton(index);
+              }}
+              className={`text-sm font-semibold hover:text-indigo-500 transition-all ${
+                activeButton === index
+                  ? "text-indigo-500 underline underline-offset-4"
+                  : ""
+              }`}
+            >
+              {item.name}
+            </button>
+          ))}
+          <a
+            href={MyPDF}
+            download="cv.png"
+            className="px-4 py-2 text-sm font-medium border-2 border-indigo-500 rounded-full text-indigo-500 hover:bg-indigo-500 hover:text-white transition-all"
+          >
+            Download CV
+          </a>
+        </div>
+
+        {/* Mobile Menu Toggle */}
         <div
-          className={`md:hidden text-white text-2xl cursor-pointer ${darkModeClass}`}
+          className="md:hidden text-2xl cursor-pointer"
           onClick={toggleMenu}
         >
           {menuOpen ? <FaTimes /> : <FaBars />}
         </div>
-        <div
-          className={`hidden md:flex justify-evenly gap-10 text-white items-center text-sm font-semibold ${darkModeClass}`}
-        >
-          {NavItems.map((val, i) => (
-            <div
-              key={i}
-              onClick={() => {
-                navigate(val.path);
-                setActiveButton(i);
-              }}
-              className={`cursor-pointer hover:text-buttonColor font-bold ${
-                activeButton === i ? "text-buttonColor" : darkModeClass
-              }`}
-            >
-              {val.name}
-            </div>
-          ))}
-          <div
-            className={`text-white border-2 border-buttonColor rounded-xl cursor-pointer px-5 py-1 ${darkModeClass}`}
-          >
-            <a href={MyPDF} download="cv.png">
-              Download CV
-            </a>
-          </div>
-        </div>
       </div>
+
+      {/* Mobile Menu */}
       {menuOpen && (
         <div
-          className={`md:hidden flex flex-col gap-5 mt-5 text-white text-center text-sm font-semibold ${darkModeClass}`}
+          className={`mt-4 flex flex-col items-center md:hidden gap-4 bg-gray-100 dark:bg-gray-800 py-4 rounded-lg shadow-lg`}
         >
-          {NavItems.map((val, i) => (
-            <div
-              key={i}
+          {NavItems.map((item, index) => (
+            <button
+              key={index}
               onClick={() => {
-                navigate(val.path);
-                setActiveButton(i);
+                navigate(item.path);
+                setActiveButton(index);
                 toggleMenu();
               }}
-              className={`cursor-pointer hover:text-buttonColor ${
-                activeButton === i ? "text-buttonColor" : darkModeClass
+              className={`text-sm font-semibold hover:text-indigo-500 transition-all ${
+                activeButton === index ? "text-indigo-500 underline" : ""
               }`}
             >
-              {val.name}
-            </div>
+              {item.name}
+            </button>
           ))}
-          <div
-            className={`text-white border-2 w-fit text-center mx-auto border-buttonColor rounded-xl cursor-pointer px-5 py-1 mt-2 ${darkModeClass}`}
+          <a
+            href={MyPDF}
+            download="cv.png"
+            className="px-4 py-2 text-sm font-medium border-2 border-indigo-500 rounded-full text-indigo-500 hover:bg-indigo-500 hover:text-white transition-all"
           >
-            <a href={MyPDF} download="cv.png">
-              Download CV
-            </a>
-          </div>
+            Download CV
+          </a>
         </div>
       )}
     </div>
