@@ -4,10 +4,17 @@ import Hotel from "../../../assets/images/hotelbabari.png";
 import Hub from "../../../assets/images/hubit.png";
 import Cab from "../../../assets/images/Cab.png";
 import cms from "../../../assets/images/cms.png";
+import movie from "../../../assets/images/movie.png"
 const Projects = ({ isDarkMode }) => {
   const darkModeClass = isDarkMode ? "" : "dark";
   const darkModeClass1 = isDarkMode ? "" : "darks";
   const ProjectDetails = [
+    {
+      name:"Online Movie Ticket Booking System With DSA(dynamic seat allocation) algorithm",
+      image:movie,
+      path:"https://github.com/Himalf/movieadmin.git"
+    }
+    ,
     {
       name: "Blog-Management System",
       image: Blogs,
@@ -33,6 +40,7 @@ const Projects = ({ isDarkMode }) => {
       image: cms,
       path: "https://blog-himal.netlify.app/",
     },
+    
   ];
   return (
     <div className={`bg-secondColor text-white p-5 ${darkModeClass}`}>
