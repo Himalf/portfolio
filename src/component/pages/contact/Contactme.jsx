@@ -75,16 +75,16 @@ const Contactme = ({ isDarkMode }) => {
       <div className={`mt-10 w-full max-w-lg text-white ${darkModeClass}`}>
         <h3 className="text-2xl font-bold mb-4">Contact Information</h3>
         <p className="mb-2">
-          <strong>Address:</strong> 1234 Street Name, City, State, 12345
+          <strong>Address:</strong> Butwal , Nepal
         </p>
         <p className="mb-2">
-          <strong>Email:</strong> contact@example.com
+          <strong>Email:</strong> himal.fullel15@gmail.com
         </p>
         <p className="mb-2">
-          <strong>Phone:</strong> (123) 456-7890
+          <strong>Phone:</strong> +977 9765310103,9867527352
         </p>
         <p className="mb-2">
-          <strong>Working Hours:</strong> Mon - Fri, 9 AM - 5 PM
+          <strong>Working Hours:</strong> Mon - sat, 9 AM - 5 PM
         </p>
       </div>
     </div>
