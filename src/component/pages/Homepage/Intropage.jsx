@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   FaFacebookF,
   FaTwitter,
@@ -11,86 +11,99 @@ import { useNavigate } from "react-router-dom";
 import Profile from "../../../assets/images/profile.png";
 
 const Intropage = ({ isDarkMode, toggleDarkMode }) => {
-  // const [isDarkMode, setIsDarkMode] = useState(true);
   const navigate = useNavigate();
 
-  // // Function to toggle dark mode
-  // const toggleDarkMode = () => {
-  //   setIsDarkMode(!isDarkMode);
-  // };
-
   // CSS class for dark mode
-  const darkModeClass = isDarkMode ? "" : "dark";
+  const darkModeClass = isDarkMode ? "dark" : "";
 
   return (
     <div
-      className={`p-3 bg-mainColor h-full flex flex-col justify-center gap-10 lg:flex lg:flex-row lg:justify-evenly items-center ${darkModeClass}`}
+      className={`min-h-screen flex flex-col lg:flex-row items-center justify-center gap-10 px-8 py-16 transition-all duration-300 ease-in-out ${
+        isDarkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
+      }`}
     >
-      <div className="max-w-md">
-        <div className="text-buttonColor font-bold text-4xl">Hello, I'm</div>
-        <div
-          className={`text-white text-6xl font-extrabold flex items-center gap-10 ${darkModeClass}`}
-        >
-          <h1> Himal Fullel</h1>
-          <div
-            className={`text-5xl w-fit hover:text-buttonColor hover:bg-white hover:rounded-full transition-all duration-200 delay-200 ease-in-out cursor-pointer ${darkModeClass}`}
+      {/* Left Section */}
+      <div className="text-center lg:text-left max-w-lg">
+        <h1 className="text-4xl lg:text-5xl font-extrabold mb-4">
+          Hello, I'm <span className="text-indigo-500">Himal Fullel</span>
+        </h1>
+        <p className="text-lg font-medium mb-6">
+          A{" "}
+          <span className="text-indigo-500 font-semibold">
+            Creative Designer and Developer
+          </span>{" "}
+          from Nepal.
+        </p>
+        <p className="text-sm lg:text-base font-light leading-relaxed mb-6">
+          I'm a passionate and dedicated developer and designer, creating
+          visually stunning and functional websites that leave a lasting
+          impression.
+        </p>
+        <div className="flex flex-wrap gap-4 items-center justify-center lg:justify-start">
+          <button
+            className="px-6 py-2 rounded-full bg-indigo-500 text-white font-semibold hover:bg-indigo-600 transition-all"
+            onClick={() => navigate("/about")}
           >
-            <a href="https://github.com/Himalf" target="_blank">
-              {" "}
+            About Me
+          </button>
+          <div className="flex gap-4 text-xl">
+            <a
+              href="https://github.com/Himalf"
+              target="_blank"
+              className="hover:text-indigo-500 transition-all"
+              rel="noreferrer"
+            >
               <FaGithub />
+            </a>
+            <a
+              href="#"
+              className="hover:text-indigo-500 transition-all"
+              rel="noreferrer"
+            >
+              <FaFacebookF />
+            </a>
+            <a
+              href="#"
+              className="hover:text-indigo-500 transition-all"
+              rel="noreferrer"
+            >
+              <FaTwitter />
+            </a>
+            <a
+              href="#"
+              className="hover:text-indigo-500 transition-all"
+              rel="noreferrer"
+            >
+              <FaLinkedin />
+            </a>
+            <a
+              href="#"
+              className="hover:text-indigo-500 transition-all"
+              rel="noreferrer"
+            >
+              <FaInstagram />
             </a>
           </div>
         </div>
-        <div className={`font-extrabold text-white ${darkModeClass}`}>
-          A{" "}
-          <span className="text-buttonColor font-bold text-2xl">
-            {" "}
-            Creative Designer and Developer
-          </span>{" "}
-          From Nepal
-        </div>
-        <div
-          className={`text-white font-semibold text-md  text-justify ${darkModeClass}`}
-        >
-          I'm creative Developer and Designer based in Nepal , and I'm very
-          passionate and dedicated to my work
-        </div>
-        <div className="flex gap-10 mt-[5%] items-center">
-          <div
-            className="px-9 py-2 bg-buttonColor text-white font-bold w-fit rounded-full hover:bg-white hover:text-buttonColor cursor-pointer transition-all duration-200 delay-200 ease-in-out"
-            onClick={() => {
-              navigate("/about");
-            }}
-          >
-            About Me
-          </div>
-          <div
-            className={`flex gap-3 items-center cursor-pointer text-white ${darkModeClass}`}
-          >
-            <div className=" hover:text-buttonColor">
-              <FaFacebookF />
-            </div>
-            <div className=" hover:text-buttonColor">
-              <FaTwitter />
-            </div>
-            <div className=" hover:text-buttonColor">
-              <FaLinkedin />
-            </div>
-            <div className=" hover:text-buttonColor">
-              <FaInstagram />
-            </div>
-          </div>
-        </div>
-        <div
-          className="p-2 text-3xl px-5 w-fit bg-buttonColor text white rounded-full m-2 cursor-pointer text-white"
+      </div>
+
+      {/* Profile Section */}
+      <div className="relative">
+        <img
+          src={Profile}
+          alt="Profile"
+          className="w-64 h-64 rounded-full border-4 border-indigo-500 shadow-lg object-cover"
+        />
+        <button
+          className={`absolute top-4 right-4 p-3 rounded-full text-2xl ${
+            isDarkMode
+              ? "bg-gray-800 hover:bg-gray-700 text-white"
+              : "bg-gray-200 hover:bg-gray-300 text-gray-800"
+          }`}
           onClick={toggleDarkMode}
         >
-          {" "}
           {isDarkMode ? <MdLightMode /> : <MdDarkMode />}
-        </div>
-      </div>
-      <div className="flex">
-        <img src={Profile} alt="Profile" className="w-fit" />
+        </button>
       </div>
     </div>
   );
