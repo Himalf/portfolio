@@ -4,6 +4,7 @@ const Aboutus = ({ isDarkMode }) => {
   const darkModeClass = isDarkMode ? "" : "dark";
   return (
     <>
+    
       <h1
         className={`bg-secondColor text-white font-bold text-3xl text-center p-5 ${darkModeClass}`}
       >
