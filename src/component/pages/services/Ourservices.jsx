@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { MdDashboardCustomize } from "react-icons/md";
 import {
   FaPaintBrush,
@@ -10,8 +10,33 @@ import {
 } from "react-icons/fa";
 
 const Ourservices = ({ isDarkMode }) => {
-  const darkModeClass = isDarkMode ? "" : "dark";
-  const darkModeClass1 = isDarkMode ? "" : "darks";
+  const [visibleCards, setVisibleCards] = useState([]);
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = cardRefs.current.indexOf(entry.target);
+            setVisibleCards((prev) => [...new Set([...prev, index])]);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    cardRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      cardRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, []);
+
   const ServiceData = [
     {
       name: "Customization",
@@ -58,23 +83,74 @@ const Ourservices = ({ isDarkMode }) => {
   ];
 
   return (
-    <div className={`bg-secondColor text-white py-10 ${darkModeClass}`}>
-      <h1 className="text-4xl text-center font-bold mb-10">Our Services</h1>
-      <hr className="border-gray-400 mb-10" />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5">
-        {ServiceData.map((val, i) => (
+    <div
+      className={`min-h-screen py-16 px-6 transition-all duration-300 ${
+        isDarkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
+      }`}
+    >
+      {/* Section Header */}
+      <div className="text-center mb-12">
+        <h1
+          className={`text-5xl font-bold ${
+            isDarkMode ? "text-indigo-400" : "text-indigo-600"
+          }`}
+        >
+          Our Services
+        </h1>
+        <p
+          className={`text-lg mt-4 ${
+            isDarkMode ? "text-gray-400" : "text-gray-700"
+          }`}
+        >
+          Explore the services we offer to bring your ideas to life.
+        </p>
+      </div>
+
+      {/* Service Cards */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
+        {ServiceData.map((service, i) => (
           <div
             key={i}
-            className={`w-full bg-mainColor p-5 rounded-md shadow-lg shadow-black  hover:scale-105 cursor-pointer ${darkModeClass1}`}
+            ref={(el) => (cardRefs.current[i] = el)}
+            className={`flex items-start gap-6 p-6 rounded-lg shadow-lg transform transition-transform duration-1000 ease-out ${
+              visibleCards.includes(i)
+                ? i % 2 === 0
+                  ? "translate-x-0 opacity-100"
+                  : "translate-x-0 opacity-100"
+                : i % 2 === 0
+                ? "-translate-x-full opacity-0"
+                : "translate-x-full opacity-0"
+            } ${
+              isDarkMode
+                ? "bg-gradient-to-r from-gray-800 to-gray-900"
+                : "bg-gradient-to-r from-white to-gray-100"
+            }`}
           >
-            <div className="flex items-center gap-4 mb-4">
-              <div className="text-5xl text-center text-buttonColor">
-                {val.icon}
-              </div>
-              <div className="text-xl font-bold">{val.name}</div>
+            <div
+              className={`text-5xl p-4 rounded-full shadow-md ${
+                isDarkMode
+                  ? "bg-indigo-700 text-white"
+                  : "bg-indigo-100 text-indigo-600"
+              }`}
+            >
+              {service.icon}
             </div>
-            <hr className="border-gray-400 mb-4" />
-            <div className="line-clamp-5">{val.description}</div>
+            <div>
+              <h2
+                className={`text-2xl font-bold mb-2 ${
+                  isDarkMode ? "text-indigo-400" : "text-indigo-600"
+                }`}
+              >
+                {service.name}
+              </h2>
+              <p
+                className={`text-lg ${
+                  isDarkMode ? "text-gray-300" : "text-gray-600"
+                }`}
+              >
+                {service.description}
+              </p>
+            </div>
           </div>
         ))}
       </div>
