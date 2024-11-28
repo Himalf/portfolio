@@ -114,17 +114,15 @@ const Ourservices = ({ isDarkMode }) => {
             ref={(el) => (cardRefs.current[i] = el)}
             className={`flex items-start gap-6 p-6 rounded-lg shadow-lg transform transition-transform duration-1000 ease-out ${
               visibleCards.includes(i)
-                ? i % 2 === 0
-                  ? "translate-x-0 opacity-100"
-                  : "translate-x-0 opacity-100"
-                : i % 2 === 0
-                ? "-translate-x-full opacity-0"
+                ? "translate-x-0 opacity-100"
                 : "translate-x-full opacity-0"
             } ${
               isDarkMode
                 ? "bg-gradient-to-r from-gray-800 to-gray-900"
                 : "bg-gradient-to-r from-white to-gray-100"
-            }`}
+            } 
+            ${i % 2 === 0 ? "lg:translate-x-0" : "lg:-translate-x-10"} 
+            sm:translate-x-0 sm:opacity-100`} // Adjust for small screens
           >
             <div
               className={`text-5xl p-4 rounded-full shadow-md ${

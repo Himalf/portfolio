@@ -55,7 +55,7 @@ const Aboutus = ({ isDarkMode }) => {
                   : "from-indigo-400 via-blue-400 to-teal-400"
               } animate-gradient`}
             >
-              <div className="w-full h-full bg-gray-900 rounded-full flex items-center justify-center">
+              <div className="w-full h-full bg-gray-800  rounded-full flex items-center justify-center">
                 <img
                   src={Aboutimage}
                   alt="profile"

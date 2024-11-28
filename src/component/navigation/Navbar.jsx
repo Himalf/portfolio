@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from "../../assets/images/logo.png";
-import MyPDF from "../../assets/images/cv.png";
+import MyPDF from "../../assets/images/Himal_Fullel_CV.pdf";
 
 const Navbar = ({ isDarkMode }) => {
   const [activeButton, setActiveButton] = useState(0);
@@ -63,7 +63,7 @@ const Navbar = ({ isDarkMode }) => {
           ))}
           <a
             href={MyPDF}
-            download="cv.png"
+            download="Himal_Fullel_CV.pdf"
             className="px-4 py-2 text-sm font-medium border-2 border-indigo-500 rounded-full text-indigo-500 hover:bg-indigo-500 hover:text-white transition-all"
           >
             Download CV
@@ -82,7 +82,7 @@ const Navbar = ({ isDarkMode }) => {
       {/* Mobile Menu */}
       {menuOpen && (
         <div
-          className={`mt-4 flex flex-col items-center md:hidden gap-4 bg-gray-100 dark:bg-gray-800 py-4 rounded-lg shadow-lg`}
+          className={`mt-4 flex flex-col items-center md:hidden gap-4 ${isDarkMode} py-4 rounded-lg shadow-lg`}
         >
           {NavItems.map((item, index) => (
             <button
@@ -101,7 +101,7 @@ const Navbar = ({ isDarkMode }) => {
           ))}
           <a
             href={MyPDF}
-            download="cv.png"
+            download="Himal_Fullel_CV.pdf"
             className="px-4 py-2 text-sm font-medium border-2 border-indigo-500 rounded-full text-indigo-500 hover:bg-indigo-500 hover:text-white transition-all"
           >
             Download CV
