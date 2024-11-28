@@ -16,7 +16,7 @@ const index = ({ isDarkMode, toggleDarkMode }) => {
       <Intropage isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />{" "}
       <hr />
       {/* <Skills isDarkMode={isDarkMode} /> <hr /> */}
-      <Aboutus isDarkMode={isDarkMode} /> <hr />
+      {/* <Aboutus isDarkMode={isDarkMode} /> <hr /> */}
       <Projects isDarkMode={isDarkMode} /> <hr />
       <Ourservices isDarkMode={isDarkMode} /> <hr />
       <Contactme isDarkMode={isDarkMode} /> <hr />
