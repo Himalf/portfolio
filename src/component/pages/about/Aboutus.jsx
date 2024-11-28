@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Aboutimage from "../../../assets/images/aboutimage.png";
+import Aboutimage from "../../../assets/images/profilepng.png";
 
 const Aboutus = ({ isDarkMode }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Trigger the animation when the component is mounted
+    // Trigger animations when the component is mounted
     setIsVisible(true);
   }, []);
 
@@ -17,8 +17,8 @@ const Aboutus = ({ isDarkMode }) => {
     >
       {/* Section Header */}
       <div
-        className={`text-center mb-12 transform transition-transform duration-1000 ease-out ${
-          isVisible ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
+        className={`text-center mb-12 transform transition-all duration-1000 ease-out delay-200 ${
+          isVisible ? "translate-y-0 opacity-100" : "-translate-y-10 opacity-0"
         }`}
       >
         <h1
@@ -33,62 +33,74 @@ const Aboutus = ({ isDarkMode }) => {
             isDarkMode ? "text-gray-400" : "text-gray-700"
           }`}
         >
-          Learn more about my journey and passion for building exceptional web applications.
+          Discover my journey and passion for crafting exceptional web
+          applications.
         </p>
       </div>
 
       {/* About Content */}
       <div
-        className={`flex flex-col lg:flex-row items-center gap-12 max-w-6xl mx-auto transform transition-transform duration-1000 ease-out ${
-          isVisible ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
+        className={`flex flex-col lg:flex-row items-center gap-12 max-w-6xl mx-auto transform transition-all duration-1000 ease-out delay-300 ${
+          isVisible ? "translate-y-0 opacity-100" : "-translate-y-10 opacity-0"
         }`}
       >
         {/* Image Section */}
         <div className="w-full lg:w-1/2 relative">
-          <img
-            src={Aboutimage}
-            alt="profile"
-            className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
-          />
+          <div className="relative w-80 h-80 rounded-full shadow-xl">
+            {/* Animated Gradient Border */}
+            <div
+              className={`absolute inset-0 p-1 rounded-full bg-gradient-to-tr ${
+                isDarkMode
+                  ? "from-indigo-500 via-purple-500 to-pink-500"
+                  : "from-indigo-400 via-blue-400 to-teal-400"
+              } animate-gradient`}
+            >
+              <div className="w-full h-full bg-gray-900 rounded-full flex items-center justify-center">
+                <img
+                  src={Aboutimage}
+                  alt="profile"
+                  className="w-64 h-64 p-2 rounded-full object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Text Section */}
-        <div className="w-full lg:w-1/2 text-center lg:text-left">
+        <div className="w-full lg:w-1/2 text-center lg:text-left space-y-6">
           <h2
-            className={`text-4xl font-extrabold mb-4 ${
+            className={`text-4xl font-extrabold ${
               isDarkMode ? "text-indigo-400" : "text-indigo-600"
             }`}
           >
             I'm a MERN Stack Developer
           </h2>
           <p
-            className={`text-lg leading-relaxed mb-4 ${
+            className={`text-lg leading-relaxed ${
               isDarkMode ? "text-gray-400" : "text-gray-700"
             }`}
           >
-            Hello! I'm Himal Fullel, a passionate MERN stack developer skilled
-            in both frontend and backend development.
+            Hi! I'm Himal Fullel, a passionate MERN stack developer skilled in
+            crafting both frontend and backend solutions.
           </p>
           <p
-            className={`text-lg leading-relaxed mb-4 ${
+            className={`text-lg leading-relaxed ${
               isDarkMode ? "text-gray-400" : "text-gray-700"
             }`}
           >
-            I specialize in building responsive and dynamic web applications
-            using MongoDB, Express.js, React, and Node.js.
+            I specialize in responsive, dynamic web applications powered by
+            MongoDB, Express.js, React, and Node.js.
           </p>
           <p
-            className={`text-lg leading-relaxed mb-4 ${
+            className={`text-lg leading-relaxed ${
               isDarkMode ? "text-gray-400" : "text-gray-700"
             }`}
           >
-            Turning ideas into reality is what excites me the most. With a
-            dedication to quality and an eagerness to tackle new challenges,
-            I'm here to bring your vision to life.
+            Bringing ideas to life and embracing challenges is what drives me.
           </p>
           {/* Hire Me Button */}
           <button
-            className={`px-8 py-3 font-bold rounded-md shadow-md transition duration-300 ${
+            className={`px-8 py-3 font-bold rounded-full shadow-md transition-transform duration-300 hover:scale-110 ${
               isDarkMode
                 ? "bg-indigo-500 text-white hover:bg-white hover:text-indigo-500"
                 : "bg-indigo-600 text-white hover:bg-indigo-500"
