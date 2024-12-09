@@ -56,28 +56,28 @@ const Intropage = ({ isDarkMode, toggleDarkMode }) => {
               <FaGithub />
             </a>
             <a
-              href="#"
+              href="https://www.facebook.com/himal.fullel/"
               className="hover:text-indigo-500 transition-all"
               rel="noreferrer"
             >
               <FaFacebookF />
             </a>
             <a
-              href="#"
+              href="https://x.com/HimalFullel"
               className="hover:text-indigo-500 transition-all"
               rel="noreferrer"
             >
               <FaTwitter />
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/himal-fullel-7823a7231"
               className="hover:text-indigo-500 transition-all"
               rel="noreferrer"
             >
               <FaLinkedin />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/himalfullel/"
               className="hover:text-indigo-500 transition-all"
               rel="noreferrer"
             >

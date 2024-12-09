@@ -93,7 +93,7 @@ const Footer = ({ isDarkMode }) => {
               className={`flex justify-center lg:justify-start gap-4 text-white ${darkModeClass}`}
             >
               <a
-                href="https://www.facebook.com"
+                href="https://www.facebook.com/himal.fullel/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-gray-700 rounded-full hover:bg-gray-600 transition-all"
@@ -101,7 +101,7 @@ const Footer = ({ isDarkMode }) => {
                 <FaFacebook size={20} />
               </a>
               <a
-                href="https://www.twitter.com"
+                href="https://x.com/HimalFullel"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-gray-700 rounded-full hover:bg-gray-600 transition-all"
@@ -109,7 +109,7 @@ const Footer = ({ isDarkMode }) => {
                 <FaTwitter size={20} />
               </a>
               <a
-                href="https://www.instagram.com"
+                href="https://www.instagram.com/himalfullel/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-gray-700 rounded-full hover:bg-gray-600 transition-all"
@@ -117,7 +117,7 @@ const Footer = ({ isDarkMode }) => {
                 <FaInstagram size={20} />
               </a>
               <a
-                href="https://www.linkedin.com"
+                href="https://www.linkedin.com/in/himal-fullel-7823a7231"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-gray-700 rounded-full hover:bg-gray-600 transition-all"
