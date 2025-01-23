@@ -6,10 +6,16 @@ import Projects from "../portfolio/Projects";
 import Ourservices from "../services/Ourservices";
 import Contactme from "../contact/Contactme";
 import { Helmet } from "react-helmet-async";
+import SEO from "../../SEO";
 const index = ({ isDarkMode, toggleDarkMode }) => {
   return (
     <div>
       <Helmet>
+        <SEO
+          title="Himal Fullel - Full-Stack Developer Portfolio"
+          description="Explore the portfolio of Himal Fullel, a full-stack developer specializing in React.js, Nest.js, and MERN stack development."
+          keywords="Himal Fullel, Full-Stack Developer, React, MERN, Nepal"
+        />
         <title>Himal Fullel</title>
         <meta name="description" content="Learn more about us on this page." />
       </Helmet>
