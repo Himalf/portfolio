@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from "../../assets/images/logo.png";
-import MyPDF from "../../assets/images/Himal_Fullel_CV.pdf";
+import MyPDF from "../../assets/images/Heemal_Fullel_Fullstack.pdf";
 
 const Navbar = ({ isDarkMode }) => {
   const [activeButton, setActiveButton] = useState(0);
@@ -31,12 +31,11 @@ const Navbar = ({ isDarkMode }) => {
     >
       <div className="flex justify-between items-center">
         {/* Logo Section */}
-        <div className="flex items-center cursor-pointer" onClick={() => navigate("/")}>
-          <img
-            src={Logo}
-            alt="logo"
-            className="w-12 h-12 rounded-full mr-2"
-          />
+        <div
+          className="flex items-center cursor-pointer"
+          onClick={() => navigate("/")}
+        >
+          <img src={Logo} alt="logo" className="w-12 h-12 rounded-full mr-2" />
           <h1 className="text-xl font-extrabold">
             <span className="text-indigo-500">Him</span>
             <span className="text-orange-500">AL</span>
@@ -71,10 +70,7 @@ const Navbar = ({ isDarkMode }) => {
         </div>
 
         {/* Mobile Menu Toggle */}
-        <div
-          className="md:hidden text-2xl cursor-pointer"
-          onClick={toggleMenu}
-        >
+        <div className="md:hidden text-2xl cursor-pointer" onClick={toggleMenu}>
           {menuOpen ? <FaTimes /> : <FaBars />}
         </div>
       </div>

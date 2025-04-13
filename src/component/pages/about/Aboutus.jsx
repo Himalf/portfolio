@@ -34,7 +34,7 @@ const Aboutus = ({ isDarkMode }) => {
           }`}
         >
           Discover my journey and passion for crafting exceptional web
-          applications.
+          applications as a web developer in Butwal, Nepal.
         </p>
       </div>
 
@@ -55,10 +55,10 @@ const Aboutus = ({ isDarkMode }) => {
                   : "from-indigo-400 via-blue-400 to-teal-400"
               } animate-gradient`}
             >
-              <div className="w-full h-full bg-gray-800  rounded-full flex items-center justify-center">
+              <div className="w-full h-full bg-gray-800 rounded-full flex items-center justify-center">
                 <img
                   src={Aboutimage}
-                  alt="profile"
+                  alt="Himal Fullel (Heemal Fullel) - MERN Stack Developer from Butwal, Nepal"
                   className="w-64 h-64 p-2 rounded-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
@@ -80,8 +80,9 @@ const Aboutus = ({ isDarkMode }) => {
               isDarkMode ? "text-gray-400" : "text-gray-700"
             }`}
           >
-            Hi! I'm Himal Fullel, a passionate MERN stack developer skilled in
-            crafting both frontend and backend solutions.
+            Hi! I'm Himal Fullel (also known as Heemal Fullel or Heemal
+            Phullel), a passionate MERN stack developer skilled in crafting both
+            frontend and backend solutions in Butwal, Nepal.
           </p>
           <p
             className={`text-lg leading-relaxed ${
@@ -96,7 +97,8 @@ const Aboutus = ({ isDarkMode }) => {
               isDarkMode ? "text-gray-400" : "text-gray-700"
             }`}
           >
-            Bringing ideas to life and embracing challenges is what drives me.
+            Bringing ideas to life and embracing challenges is what drives me as
+            a software engineer in Butwal.
           </p>
           {/* Hire Me Button */}
           <button
@@ -106,6 +108,7 @@ const Aboutus = ({ isDarkMode }) => {
                 : "bg-indigo-600 text-white hover:bg-indigo-500"
             }`}
             onClick={() => alert("Thank you for hiring me!")}
+            aria-label="Hire Himal Fullel for web development services"
           >
             Hire Me
           </button>

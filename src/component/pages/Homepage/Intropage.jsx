@@ -12,10 +12,8 @@ import Profile from "../../../assets/images/profile.png";
 
 const Intropage = ({ isDarkMode, toggleDarkMode }) => {
   const navigate = useNavigate();
-
   // CSS class for dark mode
   const darkModeClass = isDarkMode ? "dark" : "";
-
   return (
     <div
       className={`min-h-screen flex flex-col lg:flex-row items-center justify-center gap-10 px-8 py-16 transition-all duration-300 ease-in-out ${
@@ -37,12 +35,14 @@ const Intropage = ({ isDarkMode, toggleDarkMode }) => {
         <p className="text-sm lg:text-base font-light leading-relaxed mb-6">
           I'm a passionate and dedicated developer and designer, creating
           visually stunning and functional websites that leave a lasting
-          impression.
+          impression. Also known as Heemal Fullel or Heemal Phullel, I
+          specialize in web development in Butwal.
         </p>
         <div className="flex flex-wrap gap-4 items-center justify-center lg:justify-start">
           <button
             className="px-6 py-2 rounded-full bg-indigo-500 text-white font-semibold hover:bg-indigo-600 transition-all"
             onClick={() => navigate("/about")}
+            aria-label="Learn more about Himal Fullel"
           >
             About Me
           </button>
@@ -52,6 +52,7 @@ const Intropage = ({ isDarkMode, toggleDarkMode }) => {
               target="_blank"
               className="hover:text-indigo-500 transition-all"
               rel="noreferrer"
+              aria-label="Himal Fullel GitHub Profile"
             >
               <FaGithub />
             </a>
@@ -59,6 +60,7 @@ const Intropage = ({ isDarkMode, toggleDarkMode }) => {
               href="https://www.facebook.com/himal.fullel/"
               className="hover:text-indigo-500 transition-all"
               rel="noreferrer"
+              aria-label="Himal Fullel Facebook Profile"
             >
               <FaFacebookF />
             </a>
@@ -66,6 +68,7 @@ const Intropage = ({ isDarkMode, toggleDarkMode }) => {
               href="https://x.com/HimalFullel"
               className="hover:text-indigo-500 transition-all"
               rel="noreferrer"
+              aria-label="Himal Fullel Twitter Profile"
             >
               <FaTwitter />
             </a>
@@ -73,6 +76,7 @@ const Intropage = ({ isDarkMode, toggleDarkMode }) => {
               href="https://www.linkedin.com/in/himal-fullel-7823a7231"
               className="hover:text-indigo-500 transition-all"
               rel="noreferrer"
+              aria-label="Himal Fullel LinkedIn Profile"
             >
               <FaLinkedin />
             </a>
@@ -80,18 +84,18 @@ const Intropage = ({ isDarkMode, toggleDarkMode }) => {
               href="https://www.instagram.com/himalfullel/"
               className="hover:text-indigo-500 transition-all"
               rel="noreferrer"
+              aria-label="Himal Fullel Instagram Profile"
             >
               <FaInstagram />
             </a>
           </div>
         </div>
       </div>
-
       {/* Profile Section */}
       <div className="relative">
         <img
           src={Profile}
-          alt="Profile"
+          alt="Himal Fullel - Web Developer and Software Engineer in Butwal, Nepal"
           className="w-64 h-64 rounded-full border-4 border-indigo-500 shadow-lg object-cover"
         />
         <button
@@ -101,6 +105,9 @@ const Intropage = ({ isDarkMode, toggleDarkMode }) => {
               : "bg-gray-200 hover:bg-gray-300 text-gray-800"
           }`}
           onClick={toggleDarkMode}
+          aria-label={
+            isDarkMode ? "Switch to light mode" : "Switch to dark mode"
+          }
         >
           {isDarkMode ? <MdLightMode /> : <MdDarkMode />}
         </button>
